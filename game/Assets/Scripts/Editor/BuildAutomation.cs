@@ -1,13 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
+using UnityEditor.SceneManagement;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public static class BuildAutomation
 {
-	[MenuItem("Test/Debug")]
+	[MenuItem("Tools/BuildToSteam")]
 	public static void Build()
 	{
-		Debug.Log("hola");
+		
+		BuildPipeline.BuildPlayer(EditorBuildSettings.scenes, Application.dataPath + "/../Builds/Steam/game.exe", BuildTarget.StandaloneWindows, BuildOptions.None);
 	}
 }
